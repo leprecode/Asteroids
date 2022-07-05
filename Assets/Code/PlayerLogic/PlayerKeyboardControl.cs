@@ -30,8 +30,6 @@ namespace Assets.Code.PlayerLogic
             {
                 _shooting.Shoot();
             }
-
-
         }
 
         private void FixedUpdate()
