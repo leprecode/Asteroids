@@ -19,6 +19,11 @@ namespace Assets.Code.BulletLogic
             GetComponent<BulletOffScreenReturn>().Returned += UpdateLastPosition;
         }
 
+        private void OnDisable()
+        {
+            _totalTravelledDistance = 0;
+        }
+
         private void OnEnable()
         {
             _lastPosition = transform.position;
