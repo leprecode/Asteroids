@@ -4,50 +4,62 @@ using UnityEngine;
 
 namespace Assets.Code.PlayerLogic
 {
-    [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerKeyboardControl : MonoBehaviour
     {
-        [SerializeField] private float _maxVelocity;
-        [SerializeField] private float _boost;
-        [SerializeField] private float _turningSpeed;
-        [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private float _maxSpeed;
+        [SerializeField] private float _acceleration;
+        [SerializeField] private float _rotationSpeed;
         [SerializeField] private Shooting _shooting;
-        float rotation;
-        float forwardDirection;
-
-        Quaternion newRotation;
+        
+        private bool _isBoosted = false;
+        private float _rotation;
+        private float _currentSpeed;
+        private float _brakingSpeed => _acceleration * 3;
 
         void Update()
         {
-            if (Input.GetKey(KeyCode.W))
-                forwardDirection = 1f;
-            else
-                forwardDirection = 0f;
+            CheckInput();
 
-            rotation = Input.GetAxis("Horizontal");
+            AccelerationAndBraking();
 
-            if (Input.GetKeyDown(KeyCode.RightControl))
-            {
-                _shooting.Shoot();
-            }
+            CheckCurrentSpeed();
         }
 
         private void FixedUpdate()
         {
-            _rigidbody.AddRelativeForce(Vector2.up * forwardDirection * _boost * Time.fixedDeltaTime);
-            //  transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.fixedDeltaTime * _turningSpeed);
-            transform.Rotate(0, 0, -rotation * _turningSpeed * Time.fixedDeltaTime);
-            //_rigidbody.AddTorque(-rotation * _turningSpeed);
-
-            /*   Debug.Log("Velocity" + _rigidbody.velocity);
-
-               if (_rigidbody.velocity.magnitude >= _maxVelocity)
-                   _rigidbody.velocity = _rigidbody.velocity.normalized * _maxVelocity;
-
-               Debug.Log("Velocity after rework" + _rigidbody.velocity.normalized);*/
+            transform.Rotate(0, 0, -_rotation * _rotationSpeed * Time.fixedDeltaTime);
+            transform.Translate(0, _currentSpeed * Time.fixedDeltaTime, 0, Space.Self);
         }
 
+        private void CheckCurrentSpeed()
+        {
+            if (_currentSpeed > _maxSpeed)
+                _currentSpeed = _maxSpeed;
+            else if (_currentSpeed < 0)
+                _currentSpeed = 0;
+        }
 
+        private void AccelerationAndBraking()
+        {
+            if (_isBoosted)
+                _currentSpeed += _acceleration * Time.deltaTime;
+            else
+                _currentSpeed -= _brakingSpeed * Time.deltaTime;
+        }
 
+        private void CheckInput()
+        {
+            if (Input.GetKey(KeyCode.W))
+                _isBoosted = true;
+            else
+                _isBoosted = false;
+
+            _rotation = Input.GetAxis("Horizontal");
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _shooting.Shoot();
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Assets.Code.Infrastructure
         //DontHide
         [SerializeField] private int startCountOfAsteroids;
 
+        public int StartCountOfAsteroids { get => startCountOfAsteroids; }
         public GameObject BigAsteroidPrefab { get => _bigAsteroidPrefab; }
-        public int StartCountOfAsteroids { get; private set; }
     }
 }

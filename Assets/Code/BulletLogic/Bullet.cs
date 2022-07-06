@@ -1,4 +1,5 @@
-﻿using Assets.Code.OffScreenLogic;
+﻿using Assets.Code.AsteroidsLogic;
+using Assets.Code.OffScreenLogic;
 using Assets.Code.Services;
 using System.Collections;
 using UnityEngine;
@@ -14,8 +15,6 @@ namespace Assets.Code.BulletLogic
 
         private void Start()
         {
-            Debug.Log("BulletStart" + this.gameObject.name);
-
             GetComponent<BulletOffScreenReturn>().Returned += UpdateLastPosition;
         }
 
@@ -28,8 +27,6 @@ namespace Assets.Code.BulletLogic
         {
             _lastPosition = transform.position;
             _maxFlightDistance = ScreenService._screenWidth;
-
-            Debug.Log("_screenWidth" + _maxFlightDistance);
         }
 
         private void Update()
@@ -40,8 +37,6 @@ namespace Assets.Code.BulletLogic
             
             if (_totalTravelledDistance >= _maxFlightDistance)
             {
-                Debug.Log("Bullet Flight Enough");
-
                 this.gameObject.SetActive(false);
             }
 
@@ -51,8 +46,19 @@ namespace Assets.Code.BulletLogic
         private void UpdateLastPosition()
         {
             _lastPosition = transform.position;
+        }
 
-            Debug.Log("Event");
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            collision.transform.TryGetComponent<AsteroidDamageHandler>(out AsteroidDamageHandler asteroid);
+
+            if (asteroid != null)
+            {
+                Debug.Log("Its Asteroid");
+                collision.gameObject.SetActive(false);
+            }
+                Debug.Log("Bullet Collision");
+            this.gameObject.SetActive(false);
         }
     }
 }

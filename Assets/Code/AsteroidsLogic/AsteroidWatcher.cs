@@ -9,9 +9,18 @@ namespace Assets.Code.AsteroidsLogic
         private List<GameObject> _createdAsteroids;
         private AsteroidSpawner _asteroidSpawner;
 
-        public AsteroidWatcher(AsteroidSpawner asteroidSpawner)
+        public void GetAsteroidSpawner(AsteroidSpawner asteroidSpawner)
         {
             _asteroidSpawner = asteroidSpawner;
+
+            GetCreatedAsteroids();
+        }
+
+        private void GetCreatedAsteroids()
+        {
+            _createdAsteroids = new List<GameObject>();
+
+            _createdAsteroids = _asteroidSpawner.activatedAsteroids;
         }
     }
 }

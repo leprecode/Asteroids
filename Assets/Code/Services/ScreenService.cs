@@ -19,11 +19,6 @@ namespace Assets.Code.Services
         public ScreenService(Camera camera)
         {
             _camera = camera;
-        }
-
-
-        private void Awake()
-        {
 
             CalculatePoints();
             CalculateScreenWidth();

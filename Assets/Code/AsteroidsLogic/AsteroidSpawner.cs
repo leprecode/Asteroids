@@ -7,8 +7,11 @@ namespace Assets.Code.AsteroidsLogic
 {
     public class AsteroidSpawner
     {
-        private int _startCountOfAsteroids;
+        //From size of asteroid from mesh bounds
+        private const float RadiusToCheck = 4.0f;
+        private const int _layerMaskOfPlayer = 64;
         private List<GameObject> _pooledAsteroids;
+        public List<GameObject> activatedAsteroids { get; private set; }
         private ScreenService _screenService;
 
         private float _leftPointX;
@@ -16,40 +19,66 @@ namespace Assets.Code.AsteroidsLogic
         private float _topPointY;
         private float _bottomPointY;
 
-        public AsteroidSpawner(AsteroidPooling asteroidPooling, int startCountOfAsteroids, ScreenService screenService)
+        public AsteroidSpawner()
         {
             _pooledAsteroids = new List<GameObject>();
+            activatedAsteroids = new List<GameObject>();
+            
+        }
 
-            _pooledAsteroids = asteroidPooling.pooledAsteroids;
-            _startCountOfAsteroids = startCountOfAsteroids;
+        public void GetScreenService(ScreenService screenService)
+        {
             _screenService = screenService;
-
-
             TakeAllPoints();
-            NewWaveOfAsteroids(_startCountOfAsteroids);
+        }
+
+        public void GetPooledAsteroids(List<GameObject> pooledAsteroids)
+        {
+            _pooledAsteroids = pooledAsteroids;
         }
 
         public void NewWaveOfAsteroids(int Count)
         {
+            activatedAsteroids.Clear();
+
             for (int i = 0; i < Count; i++)
             {
-                _pooledAsteroids[i].SetActive(true);
+                var positionToCheck = NewRandomPosition();
 
-                NewRandomPosition(_pooledAsteroids[i]);
+                while (CheckPlayerPosition(positionToCheck)==false)
+                {
+                    positionToCheck = NewRandomPosition();
+                }
+
+                _pooledAsteroids[i].SetActive(true);
+                _pooledAsteroids[i].transform.position = positionToCheck;
+                activatedAsteroids.Add(_pooledAsteroids[i]);
             }
         }
 
-        private void NewRandomPosition(GameObject newAsteroid)
+        private bool CheckPlayerPosition(Vector2 positionToCheck)
+        {
+            var hited = Physics2D.OverlapCircle(positionToCheck, RadiusToCheck, _layerMaskOfPlayer);
+
+            if (hited!=null)
+            {
+                Debug.Log("Hited with" + hited.name);
+            }
+
+            if (hited == null)
+                return true;
+            else
+                return false;
+        }
+
+        private Vector3 NewRandomPosition()
         {
             var RandomPlaceOnX = Random.Range(_leftPointX, _rightPointX);
             var RandomPlaceOnY = Random.Range(_bottomPointY, _topPointY);
-            
+
             var RandomPosition = new Vector2(RandomPlaceOnX, RandomPlaceOnY);
 
-            newAsteroid.transform.position = RandomPosition;
-
-            Debug.Log("PlaceX" + RandomPlaceOnX);
-            Debug.Log("PlaceY" + RandomPlaceOnY);
+            return RandomPosition;
         }
 
         private void TakeAllPoints()

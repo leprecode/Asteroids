@@ -57,7 +57,6 @@ namespace Assets.Code.PlayerLogic
 
                 newBullet.SetActive(true);
                 newBullet.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * _bulletSpeed);
-                Debug.Log(newBullet.name);
             }
         }
 
