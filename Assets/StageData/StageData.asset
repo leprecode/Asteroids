@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d637adc466e6ddf4791c437a1b519801, type: 3}
   m_Name: StageData
   m_EditorClassIdentifier: 
-  _parentOfAsteroids: {fileID: 0}
-  _bigAsteroidPrefab: {fileID: 20054102701088807, guid: 683f7786e488f64438a2ccb75d270b1f, type: 3}
+  _bigAsteroidPrefab: {fileID: 8542328165750409745, guid: 98e15014c183cb14db71597da2004637, type: 3}
   startCountOfAsteroids: 2

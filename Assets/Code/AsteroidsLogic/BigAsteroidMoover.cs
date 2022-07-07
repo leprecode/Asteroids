@@ -17,9 +17,9 @@ namespace Assets.Code.AsteroidsLogic
 
             ChooseSpeed();
         }
-        private void Update()
+        private void FixedUpdate()
         {
-            transform.Translate(0, _currentSpeed * Time.deltaTime, 0, Space.Self);
+            transform.Translate(0, _currentSpeed * Time.fixedDeltaTime, 0, Space.Self);
         }
 
         private void ChooseSpeed()

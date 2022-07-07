@@ -1,5 +1,4 @@
-﻿using Assets.Code.AsteroidsLogic;
-using Assets.Code.OffScreenLogic;
+﻿using Assets.Code.Interfaces;
 using Assets.Code.Services;
 using System.Collections;
 using UnityEngine;
@@ -50,14 +49,12 @@ namespace Assets.Code.BulletLogic
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            collision.transform.TryGetComponent<AsteroidDamageHandler>(out AsteroidDamageHandler asteroid);
+            collision.transform.TryGetComponent<IDamagable>(out IDamagable asteroid);
 
-            if (asteroid != null)
-            {
-                Debug.Log("Its Asteroid");
-                collision.gameObject.SetActive(false);
-            }
-                Debug.Log("Bullet Collision");
+            if (asteroid == null)
+                return;
+
+            asteroid.ApplyDamage();
             this.gameObject.SetActive(false);
         }
     }
