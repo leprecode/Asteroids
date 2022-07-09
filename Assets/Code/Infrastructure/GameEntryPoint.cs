@@ -23,7 +23,8 @@ namespace Assets.Code.Infrastructure
             _game = new Game(new ScreenService(mainCamera),
                 new AsteroidPooling(parentOfAsteroids, _stageData.BigAsteroidPrefab),
                 new AsteroidSpawner(),
-                new AsteroidWatcher(),this);
+                new AsteroidWatcher(),
+                new PlayerWatcher());
         }
     }
 }

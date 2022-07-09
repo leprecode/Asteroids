@@ -14,7 +14,6 @@ namespace Assets.Code.PlayerLogic
         [SerializeField] private GameObject _brokenShip;
 
         private float timeToResetPlayer = 0.5f;
-
         public float TimeToResetPlayerAfterDamage { get => timeToResetPlayer; }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -31,9 +30,10 @@ namespace Assets.Code.PlayerLogic
 
         public void ApplyDamage()
         {
-            BrokeShip();
+            // BrokeShip();
+            //Invoke("RepaierShip", timeToResetPlayer);
+            
             OnTakeDamage?.Invoke();
-            Invoke("RepaierShip", timeToResetPlayer);
         }
 
         private void BrokeShip()
@@ -48,4 +48,17 @@ namespace Assets.Code.PlayerLogic
             _brokenShip.SetActive(false);
         }
     }
+
+    public class PlayerSpawnBehaviour : MonoBehaviour
+    {
+        [SerializeField] private PlayerDamageHandler _playerDamageHandler;
+        [SerializeField] private SpriteRenderer _playerRenderer;
+
+
+        private void FadeInAndOut()
+        {
+            
+        }
+    }
+
 }

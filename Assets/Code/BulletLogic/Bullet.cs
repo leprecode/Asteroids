@@ -7,6 +7,7 @@ namespace Assets.Code.BulletLogic
 {
     public class Bullet : MonoBehaviour
     {
+        [SerializeField] private float _speed;
         private float _maxFlightDistance;
         private float _totalTravelledDistance;
 
@@ -30,21 +31,12 @@ namespace Assets.Code.BulletLogic
 
         private void Update()
         {
-            var currentPosition = transform.position;
-
-            _totalTravelledDistance += Vector2.Distance(currentPosition, _lastPosition);
-            
-            if (_totalTravelledDistance >= _maxFlightDistance)
-            {
-                this.gameObject.SetActive(false);
-            }
-
-            _lastPosition = currentPosition; 
+            UpdateTravelledDistance();
         }
 
-        private void UpdateLastPosition()
+        private void FixedUpdate()
         {
-            _lastPosition = transform.position;
+            transform.Translate(0,_speed * Time.deltaTime,0,Space.Self);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -57,5 +49,26 @@ namespace Assets.Code.BulletLogic
             asteroid.ApplyDamage();
             this.gameObject.SetActive(false);
         }
+
+        private void UpdateTravelledDistance()
+        {
+            var currentPosition = transform.position;
+
+            _totalTravelledDistance += Vector2.Distance(currentPosition, _lastPosition);
+
+            if (_totalTravelledDistance >= _maxFlightDistance)
+            {
+                this.gameObject.SetActive(false);
+            }
+
+            _lastPosition = currentPosition;
+        }
+
+        private void UpdateLastPosition()
+        {
+            _lastPosition = transform.position;
+        }
+
+
     }
 }

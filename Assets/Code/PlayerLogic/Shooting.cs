@@ -7,12 +7,11 @@ namespace Assets.Code.PlayerLogic
     public class Shooting : MonoBehaviour
     {
         private const int CountOfBullets = 70;
-        private List<GameObject> _poolOfBullets;
 
+        private List<GameObject> _poolOfBullets;
         [SerializeField] private GameObject _bulletsParent;
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _socketForBullet;
-        [SerializeField] private float _bulletSpeed;
         [SerializeField] private float _fireRate;
 
         private Vector2 _bulletSocketPosition => _socketForBullet.position;
@@ -54,9 +53,7 @@ namespace Assets.Code.PlayerLogic
                 newBullet.SetActive(false);
                 newBullet.transform.position = _bulletSocketPosition;
                 newBullet.transform.rotation = _socketForBullet.rotation;
-
                 newBullet.SetActive(true);
-                newBullet.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * _bulletSpeed);
             }
         }
 
