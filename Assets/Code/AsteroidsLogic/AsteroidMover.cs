@@ -13,8 +13,6 @@ namespace Assets.Code.AsteroidsLogic
             
             var newRandomDirection = UnityEngine.Random.Range(minInclusive, maxInclusive);
             transform.Rotate(0,0,newRandomDirection);
-
-            Debug.Log("RandomRotation" + newRandomDirection);
         }
 
         public void ApplySpeed(float newSpeed)

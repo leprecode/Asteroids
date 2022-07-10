@@ -23,7 +23,7 @@ namespace Assets.Code.Infrastructure
                     _lifesIcons[i].SetActive(false);
                     return;
                 }
-            }    
+            }
         }
     }
 }

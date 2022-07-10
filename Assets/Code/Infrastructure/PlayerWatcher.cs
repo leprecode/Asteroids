@@ -7,6 +7,9 @@ namespace Assets.Code.Infrastructure
 {
     public class PlayerWatcher
     {
+        public delegate void OnDestroy();
+        public static event OnDestroy PlayerDestroyed;
+
         private const int _maxCountOfPlayersLife = 5;
         private int _currentPlayersLifeCount;
 
@@ -28,9 +31,7 @@ namespace Assets.Code.Infrastructure
         private void CheckLifeCount()
         {
             if (_currentPlayersLifeCount == 0)
-            {
-                //gameOver
-            }
+                PlayerDestroyed?.Invoke();
         }
     }
 }

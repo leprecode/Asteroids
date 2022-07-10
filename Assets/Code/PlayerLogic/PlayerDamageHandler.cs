@@ -1,5 +1,6 @@
-﻿using Assets.Code.Interfaces;
-using System.Collections;
+﻿using Assets.Code.Infrastructure;
+using Assets.Code.Interfaces;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,9 +13,15 @@ namespace Assets.Code.PlayerLogic
 
         [SerializeField] private GameObject _playerShip;
         [SerializeField] private GameObject _brokenShip;
+        [SerializeField] private PlayerSpawnBehaviour _playerSpawnBehaviour;
 
         private float timeToResetPlayer = 0.5f;
         public float TimeToResetPlayerAfterDamage { get => timeToResetPlayer; }
+
+        private void Start()
+        {
+            PlayerWatcher.PlayerDestroyed += DestroyPlayer;
+        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -27,38 +34,15 @@ namespace Assets.Code.PlayerLogic
             ApplyDamage();
         }
 
-
         public void ApplyDamage()
         {
-            // BrokeShip();
-            //Invoke("RepaierShip", timeToResetPlayer);
-            
             OnTakeDamage?.Invoke();
+            _playerSpawnBehaviour.enabled = true;
         }
 
-        private void BrokeShip()
+        private void DestroyPlayer()
         {
-            _playerShip.SetActive(false);
-            _brokenShip.SetActive(true);
-        }
-
-        private void RepairShip()
-        {
-            _playerShip.SetActive(true);
-            _brokenShip.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
-
-    public class PlayerSpawnBehaviour : MonoBehaviour
-    {
-        [SerializeField] private PlayerDamageHandler _playerDamageHandler;
-        [SerializeField] private SpriteRenderer _playerRenderer;
-
-
-        private void FadeInAndOut()
-        {
-            
-        }
-    }
-
 }
