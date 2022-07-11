@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - POOL_ASTEROIDS
+  - POOL_UFO
+  - POOL_UFO_BULLETS
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - Player
   - Bullet
   - Asteroid
-  - BrokenShip
-  - 
+  - UFO
+  - UFOBullet
   - 
   - 
   - 

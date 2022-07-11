@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Code.Infrastructure;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,11 @@ namespace Assets.Code.AsteroidsLogic
     {
         [SerializeField] private List<GameObject> _asteroids = new List<GameObject>();
         [SerializeField] private GameObject _bigAsteroid;
+        private AsteroidWatcher _asteroidWatcher;
 
         private void Start()
         {
-            SubscribeToAsteroids();
+            _asteroidWatcher = FindObjectOfType<GameEntryPoint>().Game.AsteroidWatcher;
         }
 
         private void OnEnable()
@@ -19,32 +21,27 @@ namespace Assets.Code.AsteroidsLogic
             PrepareAsteroid();
         }
 
-        private void SubscribeToAsteroids()
+        public void CheckAsteroids()
         {
-            Debug.Log("Subscribed!");
+            Debug.Log("Switcher Check!");
 
-            foreach (var asteroid in _asteroids)
-            {
-                AsteroidDamageHandler.AsteroidDestroyed += CheckAsteroids;
-            }
-        }
-
-        private void CheckAsteroids()
-        {
             foreach (var asteroid in _asteroids)
             {
                 if (asteroid.activeSelf == true)
                     return;
             }
 
-            Invoke("DeactivateAsteroid",0.1f);
+            Debug.Log("Switcher willDeactivate!");
 
+            DeactivateAsteroid();
         }
-
+         
         private void PrepareAsteroid()
         {
+            Debug.Log("Prepare");
             foreach (var asteroid in _asteroids)
             {
+                asteroid.transform.localPosition = new Vector2(0,0);
                 asteroid.SetActive(false);
             }
 
@@ -53,7 +50,10 @@ namespace Assets.Code.AsteroidsLogic
 
         private void DeactivateAsteroid()
         {
+            Debug.Log("Deactivated");
+
             gameObject.SetActive(false);
+            _asteroidWatcher.CheckAsteroidsCount();
         }
     }
 }

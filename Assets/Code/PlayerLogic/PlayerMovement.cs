@@ -4,12 +4,10 @@ using UnityEngine;
 
 namespace Assets.Code.PlayerLogic
 {
-    public class PlayerMove : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
-        //Запросить время для восстановления после дэмэджа
-
-        private const float BrakingSpeed = 1.4f;
-        private const float TimeToEnableTrailAfterDamage = 1.0f;
+        private float _brakingSpeed = 1.4f;
+        private float _timeToEnableTrailAfterDamage = 1.0f;
 
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _acceleration;
@@ -63,7 +61,7 @@ namespace Assets.Code.PlayerLogic
             if (_isBoosted)
                 _currentSpeed += _acceleration * Time.deltaTime;
             else
-                _currentSpeed -= BrakingSpeed * Time.deltaTime;
+                _currentSpeed -= _brakingSpeed * Time.deltaTime;
         }
 
         private void CheckInput()
@@ -92,7 +90,7 @@ namespace Assets.Code.PlayerLogic
             _isBoosted = false;
             _currentSpeed = 0f;
 
-            Invoke("EnableTrailEmmiting", TimeToEnableTrailAfterDamage);
+            Invoke("EnableTrailEmmiting", _timeToEnableTrailAfterDamage);
         }
 
         private void PrepareToInvisible()

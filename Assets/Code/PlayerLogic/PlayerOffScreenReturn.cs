@@ -6,7 +6,7 @@ namespace Assets.Code.PlayerLogic
     public class PlayerOffScreenReturn : MonoBehaviour
     {
         [SerializeField] private Renderer _spriteRenderer;
-        [SerializeField] private PlayerMove _playerMove;
+        [SerializeField] private PlayerMovement _playerMove;
         private Camera _camera;
 
         public delegate void ChangeVisible();

@@ -1,4 +1,5 @@
 ﻿using Assets.Code.BulletLogic;
+using Assets.Code.Infrastructure;
 using Assets.Code.Interfaces;
 using System;
 using UnityEngine;
@@ -7,17 +8,10 @@ namespace Assets.Code.AsteroidsLogic
 {
     public class AsteroidDamageHandler : MonoBehaviour, IDamagable
     {
-        public delegate void OnDestroy();
-        public static event OnDestroy AsteroidDestroyed;
-
         [SerializeField] private GameObject _firstSmallerAsteroid;
         [SerializeField] private GameObject _secondSmallerAsteroid;
+        [SerializeField] private AsteroidSwitcher _asteroidSwitcher;
 
-        private void OnDisable()
-        {
-            ApplyDamage();
-        }
-        
         public void ApplyDamage()
         {
             if (_firstSmallerAsteroid != null && _secondSmallerAsteroid != null)
@@ -32,9 +26,8 @@ namespace Assets.Code.AsteroidsLogic
                 SetNewMovementSpeed();
             }
 
-            AsteroidDestroyed?.Invoke();
-
             this.gameObject.SetActive(false);
+            _asteroidSwitcher.CheckAsteroids();
         }
 
         private void SetNewMovementSpeed()
@@ -57,6 +50,16 @@ namespace Assets.Code.AsteroidsLogic
 
             _firstSmallerAsteroid.GetComponent<AsteroidMover>().ChooseDirection(lastDirection);
             _secondSmallerAsteroid.GetComponent<AsteroidMover>().ChooseDirection(lastDirection);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable);
+
+            if (damagable == null)
+                return;
+
+            damagable.ApplyDamage();
         }
     }
 }

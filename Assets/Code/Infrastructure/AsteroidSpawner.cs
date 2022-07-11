@@ -1,17 +1,14 @@
-﻿using Assets.Code.PoolingLogic;
-using Assets.Code.Services;
+﻿using Assets.Code.Services;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Code.AsteroidsLogic
+namespace Assets.Code.Infrastructure
 {
     public class AsteroidSpawner
     {
-        //From size of asteroid from mesh bounds
         private const float RadiusToCheck = 4.0f;
         private const int _layerMaskOfPlayer = 64;
-        private List<GameObject> _pooledAsteroids;
-        public List<GameObject> activatedAsteroids { get; private set; }
+        public List<GameObject> pooledAsteroids { get; private set; }
         private ScreenService _screenService;
 
         private float _leftPointX;
@@ -21,9 +18,7 @@ namespace Assets.Code.AsteroidsLogic
 
         public AsteroidSpawner()
         {
-            _pooledAsteroids = new List<GameObject>();
-            activatedAsteroids = new List<GameObject>();
-            
+            pooledAsteroids = new List<GameObject>();
         }
 
         public void GetScreenService(ScreenService screenService)
@@ -34,25 +29,22 @@ namespace Assets.Code.AsteroidsLogic
 
         public void GetPooledAsteroids(List<GameObject> pooledAsteroids)
         {
-            _pooledAsteroids = pooledAsteroids;
+            this.pooledAsteroids = pooledAsteroids;
         }
 
-        public void NewWaveOfAsteroids(int Count)
+        public void CreateNewWave(int Count)
         {
-            activatedAsteroids.Clear();
-
             for (int i = 0; i < Count; i++)
             {
                 var positionToCheck = NewRandomPosition();
 
-                while (CheckPlayerPosition(positionToCheck)==false)
+                while (CheckPlayerPosition(positionToCheck) == false)
                 {
                     positionToCheck = NewRandomPosition();
                 }
 
-                _pooledAsteroids[i].SetActive(true);
-                _pooledAsteroids[i].transform.position = positionToCheck;
-                activatedAsteroids.Add(_pooledAsteroids[i]);
+                pooledAsteroids[i].SetActive(true);
+                pooledAsteroids[i].transform.position = positionToCheck;
             }
         }
 
@@ -60,7 +52,7 @@ namespace Assets.Code.AsteroidsLogic
         {
             var hited = Physics2D.OverlapCircle(positionToCheck, RadiusToCheck, _layerMaskOfPlayer);
 
-            if (hited!=null)
+            if (hited != null)
             {
                 Debug.Log("Hited with" + hited.name);
             }

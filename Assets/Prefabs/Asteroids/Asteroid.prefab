@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstSmallerAsteroid: {fileID: 1954876809682110226}
   _secondSmallerAsteroid: {fileID: 4435248438546446365}
+  _asteroidSwitcher: {fileID: 8542328165750409744}
 --- !u!1 &1740928072986315679
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
+  _asteroidSwitcher: {fileID: 8542328165750409744}
 --- !u!1 &1787388303449850824
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstSmallerAsteroid: {fileID: 454824834625195014}
   _secondSmallerAsteroid: {fileID: 7696843770281043358}
+  _asteroidSwitcher: {fileID: 8542328165750409744}
 --- !u!50 &5157251461585052906
 Rigidbody2D:
   serializedVersion: 4
@@ -732,6 +735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
+  _asteroidSwitcher: {fileID: 8542328165750409744}
 --- !u!1 &4435248438546446365
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
+  _asteroidSwitcher: {fileID: 8542328165750409744}
 --- !u!1 &7696843770281043358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstSmallerAsteroid: {fileID: 1740928072986315679}
   _secondSmallerAsteroid: {fileID: 8735162432702906602}
+  _asteroidSwitcher: {fileID: 8542328165750409744}
 --- !u!1 &8542328165750409745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,3 +1328,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
+  _asteroidSwitcher: {fileID: 8542328165750409744}

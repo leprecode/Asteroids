@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace Assets.Code.PlayerLogic
+namespace Assets.Code.PlayerLogic.Control
 {
     public class PlayerKeyboardControl : MonoBehaviour
     {
         private void Awake()
         {
-            
+
         }
 
         private void Update()

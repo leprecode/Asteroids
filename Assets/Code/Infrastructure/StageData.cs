@@ -7,8 +7,14 @@ namespace Assets.Code.Infrastructure
     public class StageData : ScriptableObject
     {
         [SerializeField] private GameObject _bigAsteroidPrefab;
+        [SerializeField] private GameObject _ufoPrefab;
+        [SerializeField] private GameObject _ufoBulletPrefab;
+
+
         [SerializeField] private int startCountOfAsteroids;
 
         public GameObject BigAsteroidPrefab { get => _bigAsteroidPrefab; }
+        public GameObject UfoPrefab { get => _ufoPrefab;}
+        public GameObject UfoBulletPrefab { get => _ufoBulletPrefab; }
     }
 }

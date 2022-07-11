@@ -11,8 +11,6 @@ namespace Assets.Code.PlayerLogic
         public delegate void OnDamage();
         public static event OnDamage OnTakeDamage;
 
-        [SerializeField] private GameObject _playerShip;
-        [SerializeField] private GameObject _brokenShip;
         [SerializeField] private PlayerSpawnBehaviour _playerSpawnBehaviour;
 
         private float timeToResetPlayer = 0.5f;
@@ -31,7 +29,6 @@ namespace Assets.Code.PlayerLogic
                 return;
 
             damagable.ApplyDamage();
-            ApplyDamage();
         }
 
         public void ApplyDamage()

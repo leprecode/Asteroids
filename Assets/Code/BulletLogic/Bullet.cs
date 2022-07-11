@@ -18,13 +18,9 @@ namespace Assets.Code.BulletLogic
             GetComponent<BulletOffScreenReturn>().Returned += UpdateLastPosition;
         }
 
-        private void OnDisable()
-        {
-            _totalTravelledDistance = 0;
-        }
-
         private void OnEnable()
         {
+            _totalTravelledDistance = 0;
             _lastPosition = transform.position;
             _maxFlightDistance = ScreenService._screenWidth;
         }
@@ -57,9 +53,7 @@ namespace Assets.Code.BulletLogic
             _totalTravelledDistance += Vector2.Distance(currentPosition, _lastPosition);
 
             if (_totalTravelledDistance >= _maxFlightDistance)
-            {
                 this.gameObject.SetActive(false);
-            }
 
             _lastPosition = currentPosition;
         }
@@ -68,7 +62,5 @@ namespace Assets.Code.BulletLogic
         {
             _lastPosition = transform.position;
         }
-
-
     }
 }

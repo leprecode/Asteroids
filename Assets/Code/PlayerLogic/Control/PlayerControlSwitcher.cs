@@ -1,7 +1,7 @@
 ﻿using Assets.Code.UI.Menu;
 using UnityEngine;
 
-namespace Assets.Code.PlayerLogic
+namespace Assets.Code.PlayerLogic.Control
 {
     public class PlayerControlSwitcher : MonoBehaviour
     {

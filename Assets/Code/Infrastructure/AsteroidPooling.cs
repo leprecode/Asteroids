@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Code.PoolingLogic
+namespace Assets.Code.Infrastructure
 {
     public class AsteroidPooling : MonoBehaviour
     {
@@ -13,7 +13,7 @@ namespace Assets.Code.PoolingLogic
         private const int _poolingCountOfBigAsteroids = 50;
 
         public List<GameObject> pooledAsteroids { get; private set; }
-        private Vector2 _startPosition = new Vector2(0,0);
+        private Vector2 _startPosition = new Vector2(0, 0);
 
         public AsteroidPooling(Transform parentOfAsteroids, GameObject bigAsteroidPrefab)
         {

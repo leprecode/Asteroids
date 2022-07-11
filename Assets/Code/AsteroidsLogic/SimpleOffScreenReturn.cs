@@ -2,7 +2,7 @@
 
 namespace Assets.Code.AsteroidsLogic
 {
-    public class AsteroidOffScreenReturn : MonoBehaviour
+    public class SimpleOffScreenReturn : MonoBehaviour
     {
         [SerializeField] private Renderer _spriteRenderer;
         private Camera _camera;
