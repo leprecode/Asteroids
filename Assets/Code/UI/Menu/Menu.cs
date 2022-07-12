@@ -12,8 +12,9 @@ namespace Assets.Code.UI.Menu
         public static event OnSwitchControls ToKeyboard;
         public static event OnSwitchControls ToKeyboardPlusMouse;
 
-        public delegate void Resume();
-        public static event Resume OnResume;
+        public delegate void ChangeGameState();
+        public static event ChangeGameState OnResume;
+        public static event ChangeGameState RestartGame;
 
         private const string KeyboardSwitcherText = "Keyboard";
         private const string KeyboardPlusMouseSwitcherText = "Keyboard + Mouse";
@@ -27,6 +28,9 @@ namespace Assets.Code.UI.Menu
         [SerializeField] private GameObject _keyboardDiscription;
         [SerializeField] private GameObject _keyboardPlusMouseDiscription;
         [SerializeField] private GameObject _pauseManager;
+        [SerializeField] private GameObject _gameOverMenu;
+
+        private bool _gameIsStarted = false;
 
         private void Start()
         {
@@ -66,7 +70,22 @@ namespace Assets.Code.UI.Menu
             _mainMenu.SetActive(false);
             _resumeButton.interactable = true;
 
-            OnResume?.Invoke();
+            if (_gameIsStarted == false)
+            {
+                OnResume?.Invoke();
+                _gameIsStarted = true;
+            }
+            else
+            {
+                OnResume?.Invoke();
+                RestartGame?.Invoke();
+            }
+        }
+
+        public void Restart()
+        {
+            _gameOverMenu.SetActive(false);
+            RestartGame?.Invoke();
         }
 
         public void OpenControlsMenu()

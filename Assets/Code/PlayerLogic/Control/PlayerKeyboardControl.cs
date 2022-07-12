@@ -4,16 +4,25 @@ namespace Assets.Code.PlayerLogic.Control
 {
     public class PlayerKeyboardControl : MonoBehaviour
     {
-        private void Awake()
-        {
-
-        }
+        [SerializeField] private PlayerMovement _playerMovement;
+        [SerializeField] private Shooting _shooting;
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            CheckInput();
+        }
+        private void CheckInput()
+        {
+            if (Input.GetKey(KeyCode.W))
+                _playerMovement.isBoosted = true;
+            else
+                _playerMovement.isBoosted = false;
+
+            _playerMovement.rotation = Input.GetAxis("Horizontal");
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("KeyboardPlay");
+                _shooting.Shoot();
             }
         }
     }

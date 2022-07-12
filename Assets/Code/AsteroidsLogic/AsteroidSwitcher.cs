@@ -11,11 +11,6 @@ namespace Assets.Code.AsteroidsLogic
         [SerializeField] private GameObject _bigAsteroid;
         private AsteroidWatcher _asteroidWatcher;
 
-        private void Start()
-        {
-            _asteroidWatcher = FindObjectOfType<GameEntryPoint>().Game.AsteroidWatcher;
-        }
-
         private void OnEnable()
         {
             PrepareAsteroid();
@@ -50,10 +45,8 @@ namespace Assets.Code.AsteroidsLogic
 
         private void DeactivateAsteroid()
         {
-            Debug.Log("Deactivated");
-
             gameObject.SetActive(false);
-            _asteroidWatcher.CheckAsteroidsCount();
+            GameEntryPoint.instance.Game.AsteroidWatcher.CheckAsteroidsCount();
         }
     }
 }

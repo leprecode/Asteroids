@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 454824834625195017}
   - component: {fileID: 454824834625195016}
   - component: {fileID: 454824834625195019}
+  - component: {fileID: 2502556899916636332}
   m_Layer: 8
   m_Name: MiddleAsteroidComplete_1
   m_TagString: Untagged
@@ -178,6 +179,19 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 1954876809682110226}
   _secondSmallerAsteroid: {fileID: 4435248438546446365}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+--- !u!114 &2502556899916636332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454824834625195014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361c8a5286cdd4bade40fb8528ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeOfEnemy: 1
 --- !u!1 &1740928072986315679
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +206,7 @@ GameObject:
   - component: {fileID: 1740928072986315649}
   - component: {fileID: 1740928072986315648}
   - component: {fileID: 1740928072986315678}
+  - component: {fileID: 6343896735877310593}
   m_Layer: 8
   m_Name: SmallAsteroidComplete_2_1
   m_TagString: Untagged
@@ -356,6 +371,19 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+--- !u!114 &6343896735877310593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740928072986315679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361c8a5286cdd4bade40fb8528ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeOfEnemy: 0
 --- !u!1 &1787388303449850824
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +399,7 @@ GameObject:
   - component: {fileID: 2927976939193952351}
   - component: {fileID: 2110512105621308913}
   - component: {fileID: 5157251461585052906}
+  - component: {fileID: 3689349804971525075}
   m_Layer: 8
   m_Name: BigAsteroidComplete
   m_TagString: Untagged
@@ -558,6 +587,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3689349804971525075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787388303449850824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361c8a5286cdd4bade40fb8528ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeOfEnemy: 2
 --- !u!1 &1954876809682110226
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +614,7 @@ GameObject:
   - component: {fileID: 1954876809682110228}
   - component: {fileID: 1954876809682110231}
   - component: {fileID: 1954876809682110229}
+  - component: {fileID: 7170459025757266758}
   m_Layer: 8
   m_Name: SmallAsteroidComplete_1_1
   m_TagString: Untagged
@@ -736,6 +779,19 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+--- !u!114 &7170459025757266758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954876809682110226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361c8a5286cdd4bade40fb8528ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeOfEnemy: 0
 --- !u!1 &4435248438546446365
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +806,7 @@ GameObject:
   - component: {fileID: 4435248438546446367}
   - component: {fileID: 4435248438546446366}
   - component: {fileID: 4435248438546446364}
+  - component: {fileID: 3962629002125258470}
   m_Layer: 8
   m_Name: SmallAsteroidComplete_1_2
   m_TagString: Untagged
@@ -914,6 +971,19 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+--- !u!114 &3962629002125258470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4435248438546446365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361c8a5286cdd4bade40fb8528ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeOfEnemy: 0
 --- !u!1 &7696843770281043358
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +998,7 @@ GameObject:
   - component: {fileID: 7696843770281043329}
   - component: {fileID: 7696843770281043328}
   - component: {fileID: 7696843770281043331}
+  - component: {fileID: 6273652768364494595}
   m_Layer: 8
   m_Name: MiddleAsteroidComplete_2
   m_TagString: Untagged
@@ -1092,6 +1163,19 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 1740928072986315679}
   _secondSmallerAsteroid: {fileID: 8735162432702906602}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+--- !u!114 &6273652768364494595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696843770281043358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361c8a5286cdd4bade40fb8528ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeOfEnemy: 1
 --- !u!1 &8542328165750409745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1249,7 @@ GameObject:
   - component: {fileID: 8735162432702906604}
   - component: {fileID: 8735162432702906607}
   - component: {fileID: 8735162432702906605}
+  - component: {fileID: 2130488082655514057}
   m_Layer: 8
   m_Name: SmallAsteroidComplete_2_2
   m_TagString: Untagged
@@ -1329,3 +1414,16 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+--- !u!114 &2130488082655514057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735162432702906602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361c8a5286cdd4bade40fb8528ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeOfEnemy: 0

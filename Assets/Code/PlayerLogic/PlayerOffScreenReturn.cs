@@ -6,7 +6,6 @@ namespace Assets.Code.PlayerLogic
     public class PlayerOffScreenReturn : MonoBehaviour
     {
         [SerializeField] private Renderer _spriteRenderer;
-        [SerializeField] private PlayerMovement _playerMove;
         private Camera _camera;
 
         public delegate void ChangeVisible();
@@ -20,6 +19,10 @@ namespace Assets.Code.PlayerLogic
 
         private void OnBecameInvisible()
         {
+            var rot =  transform.rotation.eulerAngles;
+
+            Debug.Log("RotationInvisible " + rot);
+
             OnInvisible?.Invoke();
 
             var newWorldPosition = transform.position;

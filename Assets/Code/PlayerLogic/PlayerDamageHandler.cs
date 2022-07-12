@@ -1,5 +1,6 @@
 ﻿using Assets.Code.Infrastructure;
 using Assets.Code.Interfaces;
+using Assets.Code.UI.Menu;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,12 @@ namespace Assets.Code.PlayerLogic
         private void Start()
         {
             PlayerWatcher.PlayerDestroyed += DestroyPlayer;
+            Menu.RestartGame += RestartPlayer;
+        }
+
+        private void RestartPlayer()
+        {
+            this.gameObject.SetActive(true);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -39,7 +46,7 @@ namespace Assets.Code.PlayerLogic
 
         private void DestroyPlayer()
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Code.UI.Menu;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Code.Infrastructure
@@ -13,6 +14,7 @@ namespace Assets.Code.Infrastructure
             _waveManager = waveManager;
 
             GetPooledUfo(ufoPooling);
+            Menu.RestartGame += DisableAllUfos;
         }
 
         private void GetPooledUfo(UfoPooling ufoPooling)
@@ -31,6 +33,14 @@ namespace Assets.Code.Infrastructure
             }
 
             _waveManager.CreateNewUfo();
+        }
+
+        private void DisableAllUfos()
+        {
+            for (int i = 0; i < _pooledUfo.Count; i++)
+            {
+                _pooledUfo[i].SetActive(false);
+            }
         }
     }
 }

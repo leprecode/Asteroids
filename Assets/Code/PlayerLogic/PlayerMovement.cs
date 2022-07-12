@@ -1,3 +1,5 @@
+using Assets.Code.UI.Menu;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,22 +8,25 @@ namespace Assets.Code.PlayerLogic
 {
     public class PlayerMovement : MonoBehaviour
     {
-        private float _brakingSpeed = 1.4f;
-        private float _timeToEnableTrailAfterDamage = 1.0f;
+        public bool isBoosted = false;
+        public float rotation;
+
+        private const float _brakingSpeed = 1.4f;
+        private const float _timeToEnableTrailAfterDamage = 1.0f;
 
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _acceleration;
         [SerializeField] private float _rotationSpeed;
-        [SerializeField] private Shooting _shooting;
-        [SerializeField] private TrailRenderer _trail;
 
-        private bool _isBoosted = false;
+        [SerializeField] private TrailRenderer _trail;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _thrustAudio;
+
         private bool _allowToRotate = true;
-        private float _rotation;
         private float _currentSpeed;
 
-        private Vector2 _worldCenter = new Vector2(0f,0f);
-        private Quaternion _startRotation = new Quaternion(0f,0f,0f,1f);
+        private Vector2 _worldCenter = new Vector2(0f, 0f);
+        private Quaternion _startRotation = new Quaternion(0f, 0f, 0f, 1f);
 
         private void Start()
         {
@@ -29,12 +34,12 @@ namespace Assets.Code.PlayerLogic
 
             PlayerOffScreenReturn.OnInvisible += PrepareToInvisible;
             PlayerOffScreenReturn.OnVisible += PrepareToVisible;
+
+            Menu.RestartGame += ResetPlayerAfterDamage;
         }
 
         private void Update()
         {
-            CheckInput();
-
             AccelerationAndBraking();
 
             CheckCurrentSpeed();
@@ -43,8 +48,8 @@ namespace Assets.Code.PlayerLogic
         private void FixedUpdate()
         {
             if (_allowToRotate)
-                transform.Rotate(0, 0, -_rotation * _rotationSpeed * Time.fixedDeltaTime);
-            
+                transform.Rotate(0, 0, -rotation * _rotationSpeed * Time.fixedDeltaTime);
+
             transform.Translate(0, _currentSpeed * Time.fixedDeltaTime, 0, Space.Self);
         }
 
@@ -58,25 +63,10 @@ namespace Assets.Code.PlayerLogic
 
         private void AccelerationAndBraking()
         {
-            if (_isBoosted)
+            if (isBoosted)
                 _currentSpeed += _acceleration * Time.deltaTime;
             else
                 _currentSpeed -= _brakingSpeed * Time.deltaTime;
-        }
-
-        private void CheckInput()
-        {
-            if (Input.GetKey(KeyCode.W))
-                _isBoosted = true;
-            else
-                _isBoosted = false;
-
-            _rotation = Input.GetAxis("Horizontal");
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _shooting.Shoot();
-            }
         }
 
         private void ResetPlayerAfterDamage()
@@ -87,7 +77,7 @@ namespace Assets.Code.PlayerLogic
             transform.rotation = _startRotation;
 
             _allowToRotate = true;
-            _isBoosted = false;
+            isBoosted = false;
             _currentSpeed = 0f;
 
             Invoke("EnableTrailEmmiting", _timeToEnableTrailAfterDamage);
@@ -97,8 +87,9 @@ namespace Assets.Code.PlayerLogic
         {
             _trail.emitting = false;
             _allowToRotate = false;
-        }        
-        
+            rotation = 0;
+        }
+
         private void PrepareToVisible()
         {
             _trail.emitting = true;

@@ -1,4 +1,5 @@
 ﻿using Assets.Code.PlayerLogic;
+using Assets.Code.UI.Menu;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,8 @@ namespace Assets.Code.Infrastructure
 
         private void Awake()
         {
-            PlayerDamageHandler.OnTakeDamage += DecreaseLifeCount;
+            PlayerWatcher.PlayerValuesChanged += DecreaseLifeCount;
+            Menu.RestartGame += RestoreLifes;
         }
 
         private void DecreaseLifeCount()
@@ -23,6 +25,14 @@ namespace Assets.Code.Infrastructure
                     _lifesIcons[i].SetActive(false);
                     return;
                 }
+            }
+        }
+
+        private void RestoreLifes()
+        {
+            for (int i = 0; i < _lifesIcons.Count; i++)
+            {
+                _lifesIcons[i].SetActive(true);
             }
         }
     }

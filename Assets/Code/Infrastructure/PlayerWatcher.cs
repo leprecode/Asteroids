@@ -1,4 +1,5 @@
 ﻿using Assets.Code.PlayerLogic;
+using Assets.Code.UI.Menu;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -7,8 +8,9 @@ namespace Assets.Code.Infrastructure
 {
     public class PlayerWatcher
     {
-        public delegate void OnDestroy();
-        public static event OnDestroy PlayerDestroyed;
+        public delegate void PLayerEvent();
+        public static event PLayerEvent PlayerDestroyed;
+        public static event PLayerEvent PlayerValuesChanged;
 
         private const int _maxCountOfPlayersLife = 5;
         private int _currentPlayersLifeCount;
@@ -17,6 +19,8 @@ namespace Assets.Code.Infrastructure
         {
             _currentPlayersLifeCount = _maxCountOfPlayersLife;
             PlayerDamageHandler.OnTakeDamage += DecreaseLifeCount;
+
+            Menu.RestartGame += RestartGame;
         }
 
         private void DecreaseLifeCount()
@@ -30,8 +34,15 @@ namespace Assets.Code.Infrastructure
 
         private void CheckLifeCount()
         {
+            PlayerValuesChanged?.Invoke();
+
             if (_currentPlayersLifeCount == 0)
                 PlayerDestroyed?.Invoke();
+        }
+
+        private void RestartGame()
+        {
+            _currentPlayersLifeCount = _maxCountOfPlayersLife;
         }
     }
 }

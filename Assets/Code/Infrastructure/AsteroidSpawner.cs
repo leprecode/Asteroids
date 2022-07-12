@@ -1,4 +1,5 @@
 ﻿using Assets.Code.Services;
+using Assets.Code.UI.Menu;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,21 @@ namespace Assets.Code.Infrastructure
         public AsteroidSpawner()
         {
             pooledAsteroids = new List<GameObject>();
+
+            Menu.RestartGame += Restart;
+        }
+
+        private void Restart()
+        {
+            DeactivateAllAsteroids();
+        }
+
+        private void DeactivateAllAsteroids()
+        {
+            for (int i = 0; i < pooledAsteroids.Count; i++)
+            {
+                pooledAsteroids[i].SetActive(false);
+            }
         }
 
         public void GetScreenService(ScreenService screenService)

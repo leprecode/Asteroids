@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Code.UI.Menu;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Code.Infrastructure
@@ -16,13 +17,33 @@ namespace Assets.Code.Infrastructure
         private AsteroidSpawner _asteroidSpawner;
         private UfoSpawner _ufoSpawner;
 
-        private int _waveNumber = -1;
+        private int _waveNumber = 0;
         private bool _isUfoSpawned = false;
+
+        private Coroutine _lastUfoCoroutine;
+        private Coroutine _lastWaveCoroutine;
 
         public void GetAllDependencies(AsteroidSpawner asteroidSpawner, UfoSpawner ufoSpawner)
         {
             _asteroidSpawner = asteroidSpawner;
             _ufoSpawner = ufoSpawner;
+
+            Menu.RestartGame += Restart;
+        }
+
+        private void Restart()
+        {
+            _waveNumber = 0;
+
+            CoroutineRunner.StopAllRoutines();
+/*            if (_lastUfoCoroutine != null && _lastWaveCoroutine != null)
+            {
+                CoroutineRunner.StopRoutine(_lastUfoCoroutine);
+                CoroutineRunner.StopRoutine(_lastWaveCoroutine);
+                Debug.Log("NOTEMPTYCORUTINES");
+            }*/
+            
+            CreateFirstWave();
         }
 
         public void CreateNewUfo()
@@ -31,7 +52,7 @@ namespace Assets.Code.Infrastructure
 
             Debug.Log("Time To Ufo: " + randomTimeToCreate);
 
-            CoroutineRunner.StartRoutine(NewUfoCoroutine(randomTimeToCreate));
+            _lastUfoCoroutine = CoroutineRunner.StartNewRoutine(NewUfoCoroutine(randomTimeToCreate));
         }
 
         public void CreateNewAsteroidWave()
@@ -39,12 +60,11 @@ namespace Assets.Code.Infrastructure
             _waveNumber ++;
             var newCount = StartCountOfAsteroids + _waveNumber;
 
-            CoroutineRunner.StartRoutine(NewWaveCoroutine(newCount));
+            _lastWaveCoroutine = CoroutineRunner.StartNewRoutine(NewWaveCoroutine(newCount));
         }
 
         public void CreateFirstWave()
         {
-            _waveNumber++;
             var newCount = StartCountOfAsteroids + _waveNumber;
             _asteroidSpawner.CreateNewWave(newCount);
 

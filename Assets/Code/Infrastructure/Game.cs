@@ -16,6 +16,7 @@ namespace Assets.Code.Infrastructure
         private readonly UfoBulletPooler _ufoBulletPooler;
         private readonly UfoWatcher _ufoWatcher;
         private readonly WaveManager _waveManager;
+        private readonly Score _score;
 
         public AsteroidWatcher AsteroidWatcher => _asteroidWatcher;
 
@@ -23,10 +24,13 @@ namespace Assets.Code.Infrastructure
 
         public ScreenService ScreenService => _screenService;
 
+        public Score Score => _score;
+
         public Game(ScreenService screenService, AsteroidPooling asteroidPooling,
             AsteroidSpawner asteroidSpawner, AsteroidWatcher asteroidWatcher,
             PlayerWatcher playerWatcher, UfoPooling ufoPooling, UfoSpawner ufoSpawner,
-            UfoBulletPooler ufoBulletPooler, WaveManager waveManager, UfoWatcher ufoWatcher)
+            UfoBulletPooler ufoBulletPooler, WaveManager waveManager, UfoWatcher ufoWatcher, 
+            Score score)
         {
             _screenService = screenService;
             _asteroidPooling = asteroidPooling;
@@ -38,6 +42,7 @@ namespace Assets.Code.Infrastructure
             _ufoBulletPooler = ufoBulletPooler;
             _waveManager = waveManager;
             _ufoWatcher = ufoWatcher;
+            _score = score;
 
             _asteroidSpawner.GetScreenService(_screenService);
             _asteroidSpawner.GetPooledAsteroids(_asteroidPooling.pooledAsteroids);
@@ -46,7 +51,7 @@ namespace Assets.Code.Infrastructure
             _ufoSpawner.GetScreenService(_screenService);
             _ufoSpawner.GetPooledUfo(_ufoPooling.pooledUfo);
             _ufoWatcher.GetAllDependencies(_ufoPooling, _waveManager);
-                
+
             _waveManager.GetAllDependencies(_asteroidSpawner, _ufoSpawner);
             _waveManager.CreateFirstWave();
         }

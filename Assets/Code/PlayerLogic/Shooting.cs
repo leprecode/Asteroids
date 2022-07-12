@@ -13,6 +13,7 @@ namespace Assets.Code.PlayerLogic
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _socketForBullet;
         [SerializeField] private float _fireRate;
+        [SerializeField] private AudioSource _audioSource;
 
         private Vector2 _bulletSocketPosition => _socketForBullet.position;
 
@@ -54,6 +55,8 @@ namespace Assets.Code.PlayerLogic
                 newBullet.transform.position = _bulletSocketPosition;
                 newBullet.transform.rotation = _socketForBullet.rotation;
                 newBullet.SetActive(true);
+
+                _audioSource.Play();
             }
         }
 

@@ -8,17 +8,15 @@ namespace Assets.Code.Infrastructure
 {
     public class GameEntryPoint : MonoBehaviour
     {
+        public static GameEntryPoint instance { get; private set; }
         [SerializeField] private StageData _stageData;
-        private const string TagToSearchParentOfAsteroids = "POOL_ASTEROIDS";
         private Game _game;
 
         public StageData StageData { get => _stageData;}
         public Game Game { get => _game; }
 
-        private void Awake()
+        private void Start()
         {
-            DontDestroyOnLoad(this.gameObject);
-
             var mainCamera = Camera.main;
 
             var parentOfAsteroids = GameObject.FindGameObjectWithTag("POOL_ASTEROIDS");
@@ -34,7 +32,17 @@ namespace Assets.Code.Infrastructure
                 new UfoSpawner(),
                 new UfoBulletPooler(parentOfUfoBullets.transform, _stageData.UfoBulletPrefab),
                 new WaveManager(),
-                new UfoWatcher());
+                new UfoWatcher(),
+                new Score());
+
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
+                return;
+            }
+
+            Destroy(this.gameObject);
         }
     }
 }
