@@ -7,11 +7,12 @@ namespace Assets.Code.Infrastructure
 {
     public class AsteroidSpawner
     {
+        public List<GameObject> pooledAsteroids { get; private set; }
+        
         private const float RadiusToCheck = 4.0f;
         private const int _layerMaskOfPlayer = 64;
-        public List<GameObject> pooledAsteroids { get; private set; }
-        private ScreenService _screenService;
 
+        private ScreenService _screenService;
         private float _leftPointX;
         private float _rightPointX;
         private float _topPointY;
@@ -23,20 +24,6 @@ namespace Assets.Code.Infrastructure
 
             Menu.RestartGame += Restart;
         }
-
-        private void Restart()
-        {
-            DeactivateAllAsteroids();
-        }
-
-        private void DeactivateAllAsteroids()
-        {
-            for (int i = 0; i < pooledAsteroids.Count; i++)
-            {
-                pooledAsteroids[i].SetActive(false);
-            }
-        }
-
         public void GetScreenService(ScreenService screenService)
         {
             _screenService = screenService;
@@ -61,6 +48,19 @@ namespace Assets.Code.Infrastructure
 
                 pooledAsteroids[i].SetActive(true);
                 pooledAsteroids[i].transform.position = positionToCheck;
+            }
+        }
+
+        private void Restart()
+        {
+            DeactivateAllAsteroids();
+        }
+
+        private void DeactivateAllAsteroids()
+        {
+            for (int i = 0; i < pooledAsteroids.Count; i++)
+            {
+                pooledAsteroids[i].SetActive(false);
             }
         }
 

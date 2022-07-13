@@ -75,5 +75,4 @@ namespace Assets.Code.PlayerLogic
             _edgeCollider2D.enabled = false;
         }
     }
-
 }

@@ -1,21 +1,20 @@
 ﻿using Assets.Code.Interfaces;
 using Assets.Code.PlayerLogic.Control;
 using Assets.Code.Services;
-using System.Collections;
 using UnityEngine;
 
 namespace Assets.Code.BulletLogic
 {
-    public class Bullet : MonoBehaviour
+    public class UfoBullet : MonoBehaviour
     {
-        [SerializeField] private float _speed;
-
+        private float _speed;
         private float _maxFlightDistance;
         private float _totalTravelledDistance;
         private Vector2 _lastPosition;
 
         private void Start()
         {
+            _speed = FindObjectOfType<PlayerMovementSettings>().MaxSpeed;
             GetComponent<BulletOffScreenReturn>().Returned += UpdateLastPosition;
         }
 
@@ -33,7 +32,7 @@ namespace Assets.Code.BulletLogic
 
         private void FixedUpdate()
         {
-            transform.Translate(0,_speed * Time.deltaTime,0,Space.Self);
+            transform.Translate(0, _speed * Time.deltaTime, 0, Space.Self);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

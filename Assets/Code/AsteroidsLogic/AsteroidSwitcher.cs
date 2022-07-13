@@ -18,22 +18,17 @@ namespace Assets.Code.AsteroidsLogic
 
         public void CheckAsteroids()
         {
-            Debug.Log("Switcher Check!");
-
             foreach (var asteroid in _asteroids)
             {
                 if (asteroid.activeSelf == true)
                     return;
             }
 
-            Debug.Log("Switcher willDeactivate!");
-
             DeactivateAsteroid();
         }
          
         private void PrepareAsteroid()
         {
-            Debug.Log("Prepare");
             foreach (var asteroid in _asteroids)
             {
                 asteroid.transform.localPosition = new Vector2(0,0);

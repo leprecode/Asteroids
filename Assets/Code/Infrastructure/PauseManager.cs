@@ -1,4 +1,6 @@
-﻿using Assets.Code.UI.Menu;
+﻿using Assets.Code.PlayerLogic;
+using Assets.Code.PlayerLogic.Control;
+using Assets.Code.UI.Menu;
 using System.Collections;
 using UnityEngine;
 
@@ -19,7 +21,7 @@ namespace Assets.Code.Infrastructure
             ToPause();
         }
 
-        void Update()
+        private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -34,6 +36,7 @@ namespace Assets.Code.Infrastructure
         {
             Time.timeScale = 1f;
             _currentState = GameStates.onPlay;
+            Cursor.lockState = CursorLockMode.Locked;
             OnResume?.Invoke();
         }
 
@@ -41,13 +44,8 @@ namespace Assets.Code.Infrastructure
         {
             Time.timeScale = 0f;
             _currentState = GameStates.onPause;
+            Cursor.lockState = CursorLockMode.None;
             OnPause?.Invoke();
-        }
-    }
-
-    enum GameStates
-    {
-        onPause,
-        onPlay
+        }   
     }
 }

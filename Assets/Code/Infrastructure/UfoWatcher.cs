@@ -17,22 +17,26 @@ namespace Assets.Code.Infrastructure
             Menu.RestartGame += DisableAllUfos;
         }
 
+        public bool CheckUfoCount()
+        {
+            Debug.Log("Ufo Counted");
+
+            for (int i = 0; i < _pooledUfo.Count; i++)
+            {
+                if (_pooledUfo[i].activeSelf)
+                    return true;
+            }
+
+            _waveManager.UfoDestroyed = true;
+            _waveManager.CheckWave();
+            return false;
+        }
+
         private void GetPooledUfo(UfoPooling ufoPooling)
         {
             _pooledUfo = new List<GameObject>();
 
             _pooledUfo = ufoPooling.pooledUfo;
-        }
-
-        public void CheckUfoCount()
-        {
-            for (int i = 0; i < _pooledUfo.Count; i++)
-            {
-                if (_pooledUfo[i].activeSelf)
-                    return;
-            }
-
-            _waveManager.CreateNewUfo();
         }
 
         private void DisableAllUfos()

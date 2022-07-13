@@ -33,6 +33,5 @@ namespace Assets.Code.PlayerLogic.Control
             _keyboardControl.enabled = false;
             _keyboardPlusMouseControl.enabled = true;
         }
-
     }
 }

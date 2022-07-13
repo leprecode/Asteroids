@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StageData
   m_EditorClassIdentifier: 
   _bigAsteroidPrefab: {fileID: 8542328165750409745, guid: 98e15014c183cb14db71597da2004637, type: 3}
-  _ufoPrefab: {fileID: 2577955305217932698, guid: 4a620a02092da6b40a439e3a90585e59, type: 3}
+  _ufoPrefab: {fileID: 8189790384145315112, guid: c2d1c1494ca33ee498c3d8946272948d, type: 3}
   _ufoBulletPrefab: {fileID: 2577955305217932698, guid: 5dd731124826f6c43a25d0dfc8721143, type: 3}
   startCountOfAsteroids: 2

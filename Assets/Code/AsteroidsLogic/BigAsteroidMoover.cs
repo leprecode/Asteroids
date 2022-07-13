@@ -5,18 +5,19 @@ namespace Assets.Code.AsteroidsLogic
 {
     public partial class BigAsteroidMoover : MonoBehaviour
     {
+        private const int _maxRotationAngleToMove = 360;
+        
         [SerializeField] private float _minSpeed;
         [SerializeField] private float _maxSpeed;
-
-        private const int _maxRotationAngleToMove = 360;
         private float _currentSpeed;
-
+        
         private void Start()
         {
             ChooseDirection();
 
             ChooseSpeed();
         }
+
         private void FixedUpdate()
         {
             transform.Translate(0, _currentSpeed * Time.fixedDeltaTime, 0, Space.Self);

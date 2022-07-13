@@ -179,6 +179,7 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 1954876809682110226}
   _secondSmallerAsteroid: {fileID: 4435248438546446365}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+  _audioSource: {fileID: 69382887034782747}
 --- !u!114 &2502556899916636332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +193,133 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeOfEnemy: 1
+--- !u!1 &607627436920684874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8866695547858849989}
+  - component: {fileID: 69382887034782747}
+  m_Layer: 8
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8866695547858849989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607627436920684874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7243218567794187237}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &69382887034782747
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607627436920684874}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ff720f88bd3d7a242873d5579fbb4055, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1740928072986315679
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +499,7 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+  _audioSource: {fileID: 69382887034782747}
 --- !u!114 &6343896735877310593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,8 +665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7eb31a392bb636458151c76997981a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minSpeed: 0.5
-  _maxSpeed: 3
+  _minSpeed: 1
+  _maxSpeed: 5
 --- !u!114 &2927976939193952351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +695,7 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 454824834625195014}
   _secondSmallerAsteroid: {fileID: 7696843770281043358}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+  _audioSource: {fileID: 69382887034782747}
 --- !u!50 &5157251461585052906
 Rigidbody2D:
   serializedVersion: 4
@@ -779,6 +909,7 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+  _audioSource: {fileID: 69382887034782747}
 --- !u!114 &7170459025757266758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,6 +1102,7 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+  _audioSource: {fileID: 69382887034782747}
 --- !u!114 &3962629002125258470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,6 +1295,7 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 1740928072986315679}
   _secondSmallerAsteroid: {fileID: 8735162432702906602}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+  _audioSource: {fileID: 69382887034782747}
 --- !u!114 &6273652768364494595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,6 +1344,7 @@ Transform:
   - {fileID: 2033894985161795555}
   - {fileID: 7124718722372349207}
   - {fileID: 3327263656358476539}
+  - {fileID: 8866695547858849989}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1414,6 +1548,7 @@ MonoBehaviour:
   _firstSmallerAsteroid: {fileID: 0}
   _secondSmallerAsteroid: {fileID: 0}
   _asteroidSwitcher: {fileID: 8542328165750409744}
+  _audioSource: {fileID: 69382887034782747}
 --- !u!114 &2130488082655514057
 MonoBehaviour:
   m_ObjectHideFlags: 0

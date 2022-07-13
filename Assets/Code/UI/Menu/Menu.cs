@@ -18,6 +18,7 @@ namespace Assets.Code.UI.Menu
 
         private const string KeyboardSwitcherText = "Keyboard";
         private const string KeyboardPlusMouseSwitcherText = "Keyboard + Mouse";
+
         [SerializeField] private GameObject _mainMenu;
         [SerializeField] private GameObject _controlsMenu;
         [SerializeField] private Button _resumeButton;

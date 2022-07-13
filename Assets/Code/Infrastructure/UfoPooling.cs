@@ -5,11 +5,11 @@ namespace Assets.Code.Infrastructure
 {
     public class UfoPooling
     {
+        public List<GameObject> pooledUfo { get; private set; }
+        
         private readonly Transform _parentOfUfo;
         private readonly GameObject _ufoPrefab;
         private const int _countOfUfo = 5;
-
-        public List<GameObject> pooledUfo { get; private set; }
         private Vector2 _startPosition = new Vector2(0, 0);
 
         public UfoPooling(Transform parentOfUfo, GameObject ufoPrefab)

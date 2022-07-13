@@ -8,6 +8,7 @@ namespace Assets.Code.AsteroidsLogic
     {
         [SerializeField] private TypesOfEnemy _typeOfEnemy;
         private Score _score;
+
         private void Start()
         {
             _score = FindObjectOfType<GameEntryPoint>().Game.Score;
@@ -15,8 +16,10 @@ namespace Assets.Code.AsteroidsLogic
 
         private void OnDisable()
         {
+            if (_score == null)
+                return;
+
             _score.AddScore(_typeOfEnemy);
-            Debug.Log($"Type {_typeOfEnemy} disabled");
         }
     }
 }

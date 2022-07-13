@@ -9,7 +9,6 @@ namespace Assets.Code.Infrastructure
     {
         private readonly Transform _parentOfAsteroids;
         private readonly GameObject _bigAsteroidPrefab;
-
         private const int _poolingCountOfBigAsteroids = 50;
 
         public List<GameObject> pooledAsteroids { get; private set; }

@@ -9,14 +9,14 @@ namespace Assets.Code.UfoLogic
         private const float _maxFireRateFrequency = 5f;
         private const string TagOfPlayer = "Player";
 
+        [SerializeField] private GameObject _bulletPrefab;
+
         private List<GameObject> _bullets;
         private Transform _player;
         private bool _isFiring = false;
         private float _timer;
         private float _randomNextShoot;
-
         private Transform _poolOfBullets;
-        [SerializeField] private GameObject _bulletPrefab;
 
         private void Start()
         {

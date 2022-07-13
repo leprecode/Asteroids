@@ -23,6 +23,12 @@ namespace Assets.Code.PlayerLogic
             Menu.RestartGame += RestartPlayer;
         }
 
+        public void ApplyDamage()
+        {
+            OnTakeDamage?.Invoke();
+            _playerSpawnBehaviour.enabled = true;
+        }
+
         private void RestartPlayer()
         {
             this.gameObject.SetActive(true);
@@ -36,12 +42,6 @@ namespace Assets.Code.PlayerLogic
                 return;
 
             damagable.ApplyDamage();
-        }
-
-        public void ApplyDamage()
-        {
-            OnTakeDamage?.Invoke();
-            _playerSpawnBehaviour.enabled = true;
         }
 
         private void DestroyPlayer()

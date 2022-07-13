@@ -15,7 +15,7 @@ namespace Assets.Code.Infrastructure
         public StageData StageData { get => _stageData;}
         public Game Game { get => _game; }
 
-        private void Start()
+        private void Awake()
         {
             var mainCamera = Camera.main;
 

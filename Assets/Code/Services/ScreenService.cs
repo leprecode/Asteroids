@@ -6,10 +6,6 @@ namespace Assets.Code.Services
 {
     public class ScreenService
     {
-        private const float MaxUfoYAxis = 0.8f;
-        private const float MinUfoYAxis = 0.2f;
-        private Camera _camera;
-
         public static float _screenWidth { get; private set; }
         public  static float _screenHeight { get; private set; }
 
@@ -21,6 +17,9 @@ namespace Assets.Code.Services
         public  float _minUfoPointYInWorldSpace { get; private set; }
 
 
+        private const float MaxUfoYAxis = 0.8f;
+        private const float MinUfoYAxis = 0.2f;
+        private Camera _camera;
 
         public ScreenService(Camera camera)
         {
@@ -56,6 +55,5 @@ namespace Assets.Code.Services
         {
             _screenHeight = Vector2.Distance(new Vector2(0, _bottomPointY), new Vector2(0, _topPointY));
         }
-
     }
 }

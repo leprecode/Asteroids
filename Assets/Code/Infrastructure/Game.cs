@@ -5,7 +5,6 @@ namespace Assets.Code.Infrastructure
 {
     public class Game
     {
-        private const int StartCountOfAsteroids = 2;
         private readonly AsteroidPooling _asteroidPooling;
         private readonly AsteroidSpawner _asteroidSpawner;
         private readonly AsteroidWatcher _asteroidWatcher;
@@ -21,8 +20,6 @@ namespace Assets.Code.Infrastructure
         public AsteroidWatcher AsteroidWatcher => _asteroidWatcher;
 
         public UfoWatcher UfoWatcher => _ufoWatcher;
-
-        public ScreenService ScreenService => _screenService;
 
         public Score Score => _score;
 
@@ -46,13 +43,13 @@ namespace Assets.Code.Infrastructure
 
             _asteroidSpawner.GetScreenService(_screenService);
             _asteroidSpawner.GetPooledAsteroids(_asteroidPooling.pooledAsteroids);
-            _asteroidWatcher.GetAllDependencies(_asteroidSpawner, _waveManager);
+            _asteroidWatcher.GetAllDependencies(_asteroidSpawner, _waveManager, _ufoWatcher);
 
             _ufoSpawner.GetScreenService(_screenService);
             _ufoSpawner.GetPooledUfo(_ufoPooling.pooledUfo);
             _ufoWatcher.GetAllDependencies(_ufoPooling, _waveManager);
 
-            _waveManager.GetAllDependencies(_asteroidSpawner, _ufoSpawner);
+            _waveManager.GetAllDependencies(_asteroidSpawner, _ufoSpawner, _ufoWatcher, _asteroidWatcher);
             _waveManager.CreateFirstWave();
         }
 

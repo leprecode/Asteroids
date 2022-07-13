@@ -11,9 +11,12 @@ namespace Assets.Code.AsteroidsLogic
         [SerializeField] private GameObject _firstSmallerAsteroid;
         [SerializeField] private GameObject _secondSmallerAsteroid;
         [SerializeField] private AsteroidSwitcher _asteroidSwitcher;
+        [SerializeField] private AudioSource _audioSource;
 
         public void ApplyDamage()
         {
+            _audioSource.Play();
+
             if (_firstSmallerAsteroid != null && _secondSmallerAsteroid != null)
             {
                 _firstSmallerAsteroid.SetActive(true);

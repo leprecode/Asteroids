@@ -13,7 +13,6 @@ namespace Assets.Code.Infrastructure
         private const int PriceForMidAsteroid = 50;
         private const int PriceForBigAsteroid = 20;
         private const int PriceForUfo = 200;
-        
         private int _score = 0;
 
         public Score()

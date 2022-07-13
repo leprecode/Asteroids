@@ -15,10 +15,7 @@ namespace Assets.Code.AsteroidsLogic
             transform.Rotate(0,0,newRandomDirection);
         }
 
-        public void ApplySpeed(float newSpeed)
-        {
-            _currentSpeed = newSpeed;
-        }
+        public void ApplySpeed(float newSpeed) => _currentSpeed = newSpeed;
 
         private void FixedUpdate()
         {

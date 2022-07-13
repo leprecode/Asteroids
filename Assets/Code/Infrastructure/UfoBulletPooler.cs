@@ -6,10 +6,12 @@ namespace Assets.Code.Infrastructure
 {
     public class UfoBulletPooler
     {
+        private const int _countOfBullets = 15;
+
         private GameObject _bulletPrefab;
         private Transform _bulletsPoolParent;
-        private const int _countOfBullets = 15;
         private List<GameObject> _pooledBullets;
+
         public UfoBulletPooler(Transform bulletsPoolParent, GameObject bulletPrefab)
         {
             _bulletsPoolParent = bulletsPoolParent;

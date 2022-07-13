@@ -8,7 +8,8 @@ namespace Assets.Code.Infrastructure
     {
         private const float RadiusToCheck = 4.0f;
         private const int _layerMaskOfPlayer = 64;
-        public List<GameObject> _pooledUfo;
+        
+        private List<GameObject> _pooledUfo;
         private ScreenService _screenService;
 
         private float _leftPointX;
@@ -91,6 +92,5 @@ namespace Assets.Code.Infrastructure
             _maxPointY = _screenService._maxUfoPointYInWorldSpace;
             _minPointY = _screenService._minUfoPointYInWorldSpace;
         }
-
     }
 }
