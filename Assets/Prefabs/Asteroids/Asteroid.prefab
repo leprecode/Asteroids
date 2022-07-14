@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1810108496594094253}
   - component: {fileID: 3856317191022454864}
   - component: {fileID: 454824834625195017}
-  - component: {fileID: 454824834625195016}
   - component: {fileID: 454824834625195019}
   - component: {fileID: 2502556899916636332}
+  - component: {fileID: 5941627715994679797}
+  - component: {fileID: 4849202929904400222}
   m_Layer: 8
   m_Name: MiddleAsteroidComplete_1
   m_TagString: Untagged
@@ -47,6 +48,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -151,19 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b313d10c0d4a74e91044fa9f7792b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &454824834625195016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454824834625195014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3862e3449d71bd0458a6beee38d284d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 1810108496594094253}
 --- !u!114 &454824834625195019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +182,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeOfEnemy: 1
+--- !u!114 &5941627715994679797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454824834625195014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16850132f9d095478b5786e2a7f5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &4849202929904400222
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454824834625195014}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &607627436920684874
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,9 +354,10 @@ GameObject:
   - component: {fileID: 7447760011017862368}
   - component: {fileID: 804220140913231600}
   - component: {fileID: 1740928072986315649}
-  - component: {fileID: 1740928072986315648}
   - component: {fileID: 1740928072986315678}
   - component: {fileID: 6343896735877310593}
+  - component: {fileID: 4503260126803723848}
+  - component: {fileID: 6960051710477831879}
   m_Layer: 8
   m_Name: SmallAsteroidComplete_2_1
   m_TagString: Untagged
@@ -367,6 +390,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -471,19 +495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b313d10c0d4a74e91044fa9f7792b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1740928072986315648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740928072986315679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3862e3449d71bd0458a6beee38d284d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 7447760011017862368}
 --- !u!114 &1740928072986315678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +524,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeOfEnemy: 0
+--- !u!114 &4503260126803723848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740928072986315679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16850132f9d095478b5786e2a7f5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &6960051710477831879
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740928072986315679}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1787388303449850824
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,10 +569,10 @@ GameObject:
   - component: {fileID: 1787388303449850826}
   - component: {fileID: 1787388303449850825}
   - component: {fileID: 8475993989316404340}
-  - component: {fileID: 2927976939193952351}
   - component: {fileID: 2110512105621308913}
   - component: {fileID: 5157251461585052906}
   - component: {fileID: 3689349804971525075}
+  - component: {fileID: 7040671717201102699}
   m_Layer: 8
   m_Name: BigAsteroidComplete
   m_TagString: Untagged
@@ -561,6 +605,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -667,19 +712,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minSpeed: 1
   _maxSpeed: 5
---- !u!114 &2927976939193952351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787388303449850824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3862e3449d71bd0458a6beee38d284d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 1787388303449850826}
 --- !u!114 &2110512105621308913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,6 +762,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeOfEnemy: 2
+--- !u!114 &7040671717201102699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787388303449850824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16850132f9d095478b5786e2a7f5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1954876809682110226
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,9 +786,10 @@ GameObject:
   - component: {fileID: 4412791920863812959}
   - component: {fileID: 7066941362752502906}
   - component: {fileID: 1954876809682110228}
-  - component: {fileID: 1954876809682110231}
   - component: {fileID: 1954876809682110229}
   - component: {fileID: 7170459025757266758}
+  - component: {fileID: 4461284923933356489}
+  - component: {fileID: 1226707848346719293}
   m_Layer: 8
   m_Name: SmallAsteroidComplete_1_1
   m_TagString: Untagged
@@ -777,6 +822,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -881,19 +927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b313d10c0d4a74e91044fa9f7792b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1954876809682110231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954876809682110226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3862e3449d71bd0458a6beee38d284d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 4412791920863812959}
 --- !u!114 &1954876809682110229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,6 +956,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeOfEnemy: 0
+--- !u!114 &4461284923933356489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954876809682110226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16850132f9d095478b5786e2a7f5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1226707848346719293
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954876809682110226}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4435248438546446365
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,9 +1001,10 @@ GameObject:
   - component: {fileID: 7618057606189758367}
   - component: {fileID: 2142295205181472102}
   - component: {fileID: 4435248438546446367}
-  - component: {fileID: 4435248438546446366}
   - component: {fileID: 4435248438546446364}
   - component: {fileID: 3962629002125258470}
+  - component: {fileID: 3020990873522263592}
+  - component: {fileID: 8797515457319981929}
   m_Layer: 8
   m_Name: SmallAsteroidComplete_1_2
   m_TagString: Untagged
@@ -970,6 +1037,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1074,19 +1142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b313d10c0d4a74e91044fa9f7792b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4435248438546446366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435248438546446365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3862e3449d71bd0458a6beee38d284d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 7618057606189758367}
 --- !u!114 &4435248438546446364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,6 +1171,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeOfEnemy: 0
+--- !u!114 &3020990873522263592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4435248438546446365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16850132f9d095478b5786e2a7f5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &8797515457319981929
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4435248438546446365}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7696843770281043358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,9 +1216,10 @@ GameObject:
   - component: {fileID: 2764743305676532353}
   - component: {fileID: 8918131971017182657}
   - component: {fileID: 7696843770281043329}
-  - component: {fileID: 7696843770281043328}
   - component: {fileID: 7696843770281043331}
   - component: {fileID: 6273652768364494595}
+  - component: {fileID: 9060359804197257083}
+  - component: {fileID: 6563033551576494429}
   m_Layer: 8
   m_Name: MiddleAsteroidComplete_2
   m_TagString: Untagged
@@ -1163,6 +1252,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1267,19 +1357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b313d10c0d4a74e91044fa9f7792b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7696843770281043328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7696843770281043358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3862e3449d71bd0458a6beee38d284d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 2764743305676532353}
 --- !u!114 &7696843770281043331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,6 +1386,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeOfEnemy: 1
+--- !u!114 &9060359804197257083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696843770281043358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16850132f9d095478b5786e2a7f5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &6563033551576494429
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696843770281043358}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8542328165750409745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,9 +1491,10 @@ GameObject:
   - component: {fileID: 5652957455665776460}
   - component: {fileID: 8587189292362547060}
   - component: {fileID: 8735162432702906604}
-  - component: {fileID: 8735162432702906607}
   - component: {fileID: 8735162432702906605}
   - component: {fileID: 2130488082655514057}
+  - component: {fileID: 5088915724081858092}
+  - component: {fileID: 7109860213289872416}
   m_Layer: 8
   m_Name: SmallAsteroidComplete_2_2
   m_TagString: Untagged
@@ -1416,6 +1527,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1520,19 +1632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b313d10c0d4a74e91044fa9f7792b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8735162432702906607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735162432702906602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3862e3449d71bd0458a6beee38d284d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 5652957455665776460}
 --- !u!114 &8735162432702906605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,3 +1661,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeOfEnemy: 0
+--- !u!114 &5088915724081858092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735162432702906602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16850132f9d095478b5786e2a7f5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &7109860213289872416
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735162432702906602}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

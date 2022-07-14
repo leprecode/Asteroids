@@ -16,7 +16,7 @@ namespace Assets.Code.BulletLogic
 
         private void Start()
         {
-            GetComponent<BulletOffScreenReturn>().Returned += UpdateLastPosition;
+            GetComponent<BulletWrapper>().Returned += UpdateLastPosition;
         }
 
         private void OnEnable()

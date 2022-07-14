@@ -12,6 +12,12 @@ namespace Assets.Code.Infrastructure
             PlayerWatcher.PlayerDestroyed += FinishGame;
         }
 
-        private void FinishGame() => _gameOverMenu.SetActive(true);
+        private void FinishGame()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            _gameOverMenu.SetActive(true);
+            Game.gameState = GameStates.GamOver;
+            Time.timeScale = 0f;
+        }
     }
 }

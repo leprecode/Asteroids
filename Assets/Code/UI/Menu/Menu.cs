@@ -31,8 +31,6 @@ namespace Assets.Code.UI.Menu
         [SerializeField] private GameObject _pauseManager;
         [SerializeField] private GameObject _gameOverMenu;
 
-        private bool _gameIsStarted = false;
-
         private void Start()
         {
             _resumeButton.interactable = false;
@@ -71,20 +69,24 @@ namespace Assets.Code.UI.Menu
             _mainMenu.SetActive(false);
             _resumeButton.interactable = true;
 
-            if (_gameIsStarted == false)
+            if (Game._isGameStarted == false)
             {
                 OnResume?.Invoke();
-                _gameIsStarted = true;
+                Game._isGameStarted = true;
+                Game.gameState = GameStates.onPlay;
             }
             else
             {
                 OnResume?.Invoke();
                 RestartGame?.Invoke();
+                Game.gameState = GameStates.onPlay;
             }
         }
 
         public void Restart()
         {
+            Game.gameState = GameStates.onPlay;
+            Time.timeScale = 1f;
             _gameOverMenu.SetActive(false);
             RestartGame?.Invoke();
         }

@@ -24,6 +24,7 @@ namespace Assets.Code.Services
         public ScreenService(Camera camera)
         {
             _camera = camera;
+            _camera.transform.localScale = Vector3.one;
 
             CalculatePoints();
             CalculateScreenWidth();

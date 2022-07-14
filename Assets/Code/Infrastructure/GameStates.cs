@@ -3,6 +3,7 @@
     public enum GameStates
     {
         onPause,
-        onPlay
+        onPlay,
+        GamOver
     }
 }

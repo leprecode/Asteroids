@@ -5,6 +5,8 @@ namespace Assets.Code.Infrastructure
 {
     public class Game
     {
+        public static GameStates gameState;
+        public static bool _isGameStarted = false;
         private readonly AsteroidPooling _asteroidPooling;
         private readonly AsteroidSpawner _asteroidSpawner;
         private readonly AsteroidWatcher _asteroidWatcher;
@@ -51,6 +53,8 @@ namespace Assets.Code.Infrastructure
 
             _waveManager.GetAllDependencies(_asteroidSpawner, _ufoSpawner, _ufoWatcher, _asteroidWatcher);
             _waveManager.CreateFirstWave();
+
+            gameState = GameStates.onPause;
         }
 
     }

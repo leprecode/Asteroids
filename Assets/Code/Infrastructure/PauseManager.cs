@@ -12,8 +12,6 @@ namespace Assets.Code.Infrastructure
         public static event OnPauseOrResume OnPause;
         public static event OnPauseOrResume OnResume;
 
-        private GameStates _currentState;
-
         private void Start()
         {
             Menu.OnResume += ToResume;
@@ -23,29 +21,31 @@ namespace Assets.Code.Infrastructure
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && (Game.gameState != GameStates.GamOver && Game._isGameStarted))
             {
-                if (_currentState == GameStates.onPlay)
-                    ToPause();
-                else
+                if (Game.gameState == GameStates.onPause)
                     ToResume();
+                else
+                    ToPause();    
             }
         }
 
         private void ToResume()
         {
+            Game.gameState = GameStates.onPlay;
             Time.timeScale = 1f;
-            _currentState = GameStates.onPlay;
+            Game.gameState = GameStates.onPlay;
             Cursor.lockState = CursorLockMode.Locked;
             OnResume?.Invoke();
         }
 
         private void ToPause()
         {
+            Game.gameState = GameStates.onPause;
             Time.timeScale = 0f;
-            _currentState = GameStates.onPause;
+            Game.gameState = GameStates.onPause;
             Cursor.lockState = CursorLockMode.None;
             OnPause?.Invoke();
-        }   
+        }
     }
 }

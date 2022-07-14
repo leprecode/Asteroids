@@ -15,7 +15,7 @@ namespace Assets.Code.BulletLogic
         private void Start()
         {
             _speed = FindObjectOfType<PlayerMovementSettings>().MaxSpeed;
-            GetComponent<BulletOffScreenReturn>().Returned += UpdateLastPosition;
+            GetComponent<BulletWrapper>().Returned += UpdateLastPosition;
         }
 
         private void OnEnable()

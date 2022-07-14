@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7071038855193775673}
   - component: {fileID: 3732180145377152691}
   - component: {fileID: -2152964123933018311}
-  - component: {fileID: 3337948156733029747}
+  - component: {fileID: 490383274412880753}
   m_Layer: 7
   m_Name: PlayersBullet
   m_TagString: Untagged
@@ -59,6 +59,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -129,14 +130,14 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3337948156733029747
+--- !u!114 &490383274412880753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5144412512114936552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ecfc5b3e68dcbe43a97104b82338352, type: 3}
+  m_Script: {fileID: 11500000, guid: 1686c028857588b4d91a254cd1e9cb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 7071038855193775673}
+  _screenBounds: {fileID: 0}

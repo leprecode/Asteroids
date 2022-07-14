@@ -28,8 +28,8 @@ namespace Assets.Code.PlayerLogic.Control
         {
             PlayerDamageHandler.OnTakeDamage += ResetPlayerAfterDamage;
 
-            PlayerOffScreenReturn.OnInvisible += PrepareToInvisible;
-            PlayerOffScreenReturn.OnVisible += PrepareToVisible;
+            PlayerWrapper.OnInvisible += PrepareToInvisible;
+            PlayerWrapper.OnVisible += PrepareToVisible;
 
             Menu.RestartGame += ResetPlayerAfterDamage;
 
