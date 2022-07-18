@@ -4,12 +4,14 @@ namespace Assets.Code.AsteroidsLogic
 {
     public class AsteroidMover : MonoBehaviour
     {
+        [SerializeField] private float MinAngleOfNewDirection = 45f;
+        [SerializeField] private float MaxAngleOfNewDirection = 45f;
         private float _currentSpeed;
 
         public void ChooseDirection(float lastDirectionOfParent)
         {
-            var minInclusive = lastDirectionOfParent - 45f;
-            var maxInclusive = lastDirectionOfParent + 45f;
+            var minInclusive = lastDirectionOfParent - MinAngleOfNewDirection;
+            var maxInclusive = lastDirectionOfParent + MaxAngleOfNewDirection;
             
             var newRandomDirection = UnityEngine.Random.Range(minInclusive, maxInclusive);
             transform.Rotate(0,0,newRandomDirection);

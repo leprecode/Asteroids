@@ -8,6 +8,8 @@ namespace Assets.Code.AsteroidsLogic
 {
     public class AsteroidDamageHandler : MonoBehaviour, IDamagable
     {
+        [SerializeField] float MinStartSpeed = 1f;
+        [SerializeField] float MaxStartSpeed = 4f;
         [SerializeField] private GameObject _firstSmallerAsteroid;
         [SerializeField] private GameObject _secondSmallerAsteroid;
         [SerializeField] private AsteroidSwitcher _asteroidSwitcher;
@@ -35,7 +37,7 @@ namespace Assets.Code.AsteroidsLogic
 
         private void SetNewMovementSpeed()
         {
-            var RandomSpeed = Mathf.Round(UnityEngine.Random.Range(1f, 4f) * 10) / 10;
+            var RandomSpeed = Mathf.Round(UnityEngine.Random.Range(MinStartSpeed, MaxStartSpeed) * 10) / 10;
 
             _firstSmallerAsteroid.GetComponent<AsteroidMover>().ApplySpeed(RandomSpeed);
             _secondSmallerAsteroid.GetComponent<AsteroidMover>().ApplySpeed(RandomSpeed);
