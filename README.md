@@ -23,7 +23,7 @@ The project code has several disadvantages, the main ones:
 - there are search operations in the code
 - wrong use of the singleton pattern
 
-This test task seemed to me one of the most interesting for me. I made many mistakes and learned how to not make them again.
+This test task seemed to me one of the most interesting. I made many mistakes and learned how to not make them again.
 
 ## Try to play on Windows
 [Download link](https://leprecode.itch.io/flat-asteroids)
